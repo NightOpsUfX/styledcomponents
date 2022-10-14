@@ -29,6 +29,8 @@ const StyledConsole = styled.textarea`
 const Console = ({color, ...props}) => {
     const [lines, setLines] = useState(['C/users/CONSOLE>'])
 
+    console.log(lines)
+
     const onKeypress = (e) => {
         if(e.charCode == 13) {
             setLines([...lines, 'C/users/CONSOLE>'])
@@ -41,7 +43,7 @@ const Console = ({color, ...props}) => {
             <Flex direction={'column'} margin={'0 10px'}>
                 {
                     lines.map(line =>
-                        <Line color={color}>{line}</Line>
+                        <Line key={`${line} ${Math.random(10000)}`} color={color}>{line}</Line>
                     )
                 }
             </Flex>
